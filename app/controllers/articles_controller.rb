@@ -1,8 +1,5 @@
 class ArticlesController < ApplicationController
     
-    def new
-        @article = Article.new
-    end
   
     def index
         @articles = Article.all
@@ -12,6 +9,9 @@ class ArticlesController < ApplicationController
         @article = Article.find(params[:id])
     end
 
+    def new
+        @article = Article.new
+    end
   
     def edit
         @article = Article.find(params[:id])
@@ -32,6 +32,7 @@ class ArticlesController < ApplicationController
         if @article.update(article_params)
             redirect_to @article
         else
+            # print @article
             render 'edit'
         end
     end
