@@ -1,5 +1,9 @@
 class ArticlesController < ApplicationController
-    #define an action inside a controller
+    
+    def new
+        @article = Article.new
+    end
+  
     def index
         @articles = Article.all
     end
@@ -8,9 +12,6 @@ class ArticlesController < ApplicationController
         @article = Article.find(params[:id])
     end
 
-    def new
-        @article = Article.new
-    end
   
     def edit
         @article = Article.find(params[:id])
